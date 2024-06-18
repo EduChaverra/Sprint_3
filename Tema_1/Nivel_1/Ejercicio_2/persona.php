@@ -1,7 +1,8 @@
 <?php
 
 require_once "cartera.php";
-require_once "llaves.php";
+require_once "llaves_vehiculo.php";
+require_once "llaves_casa.php";
 require_once "movil.php";
 require_once "tarjeta_transporte.php";
 
@@ -9,11 +10,11 @@ class Persona{
 
     private Movil $movil;
     private Cartera $cartera;
-    private ?Llaves $llaveVehiculo;
-    private Llaves $llaveCasa;
+    private ?LlavesVehiculo $llaveVehiculo;
+    private LlavesCasa $llaveCasa;
     private ?TarjetaDeTransporte $tarjetaTransporte;        
 
-    public function __construct(Cartera $cartera, Movil $movil, Llaves $llaveCasa, ?Llaves $llaveVehiculo = null, ?TarjetaDeTransporte $tarjetaTransporte = null){
+    public function __construct(Cartera $cartera, Movil $movil, LlavesCasa $llaveCasa, ?LlavesVehiculo $llaveVehiculo = null, ?TarjetaDeTransporte $tarjetaTransporte = null){
         $this->cartera = $cartera;
         $this->movil = $movil;
         $this->llaveVehiculo = $llaveVehiculo;
@@ -22,7 +23,7 @@ class Persona{
     }
 
     public function SalirDeCasa(){
-        $items = [$this->cartera->getNombre(), $this->movil->getNombre(), $this->llaveCasa->getTipoDeLlave()];
+        $items = [$this->cartera->getNombre(), $this->movil->getNombre(), $this->llaveCasa->getNombre()];
         if ($this->llaveVehiculo !== null){
             $items[] = $this->llaveVehiculo->getTipoDeLlave();
         }

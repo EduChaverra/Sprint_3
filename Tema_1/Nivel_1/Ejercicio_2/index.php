@@ -4,9 +4,9 @@ require_once "persona.php";
 
 $cartera = new Cartera();
 $movil = new Movil();
-$llavesCasa = new Llaves(TipoDeLlave::CASA);
-$llavesCoche = new Llaves(TipoDeLlave::COCHE);
-$llavesMoto = new Llaves(TipoDeLlave::MOTO);
+$llavesCasa = new LlavesCasa();
+$llavesCoche = new LlavesVehiculo(TipoDeLlave::COCHE);
+$llavesMoto = new LlavesVehiculo(TipoDeLlave::MOTO);
 $arjetaDeTransporte = new TarjetaDeTransporte();
 
 $persona1 = new Persona($cartera,$movil,$llavesCasa,$llavesMoto);
